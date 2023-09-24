@@ -16,7 +16,7 @@ class userController {
     const userAlreadySubscribed = await userRepo.findOne({ where: { email, thematic } })
 
     if (userAlreadySubscribed) {
-      return res.status(400).json({ error: "Você já se cadastrou nesta atração" })
+      return res.sendStatus(201)
     }
 
     const user = userRepo.create({
